@@ -20,13 +20,16 @@ func readInput() (string,error){
 		return "", errors.New("wordcount 'your string'")
 	}
 	if args[1] == ""{
-		return "", errors.New("you enter empty string")
+		return "", nil
 	}
 	return args[1], nil
 }
 
 func countWord(text string) uint{
 	var count uint
+	if text == ""{
+		return 0
+	}
 	for _, ch := range text{
 		if ch == rune(' '){
 			count++
